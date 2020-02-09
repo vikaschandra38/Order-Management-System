@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default bg-dark navbar-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" routerLink="/">Order Management System</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item" *ngIf="authenticateUser.isLoggedOut && authenticateUser.checkUserAuthentication">
+          <a class="nav-link active" routerLink="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!authenticateUser.isLoggedOut && authenticateUser.checkUserAuthentication">
+          <a class="nav-link active" routerLink="/" (click)="authenticateUser.logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
